@@ -1,0 +1,198 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sithmi 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffe0ec, #e8d9ff, #fff0f5);
+    color: #66334f;
+}
+
+.card {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.85);
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(170,70,120,0.2);
+    animation: appear 1s ease;
+}
+
+.heart {
+    font-size: 65px;
+    animation: heartbeat 1.3s infinite;
+}
+
+h1 {
+    color: #d63384;
+    font-size: 36px;
+}
+
+h2 {
+    color: #a83270;
+    font-size: 23px;
+    margin-top: 25px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+button {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+#yes {
+    background: #e84393;
+    color: white;
+    box-shadow: 0 5px 15px #e8439350;
+}
+
+#no {
+    background: #f1dce8;
+    color: #804c69;
+}
+
+#message {
+    display: none;
+    margin-top: 25px;
+    padding: 18px;
+    background: #ffe8f1;
+    border-radius: 18px;
+    color: #c02670;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #ad8199;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="heart">💗</div>
+
+    <h1>Hey Sithmi! 🌸</h1>
+
+    <p>
+        There's something I've been wanting to tell you...
+        You make ordinary moments feel special,
+        and I really enjoy having you in my life.
+    </p>
+
+    <h2>Would you like to go out with me? 💍</h2>
+
+    <p>I'd love to create some beautiful memories together. ✨</p>
+
+    <button id="yes" onclick="sayYes()">
+        Yes! 💖
+    </button>
+
+    <button id="no" onclick="sayNo()">
+        Not right now 🌷
+    </button>
+
+    <div id="message"></div>
+
+    <div class="footer">
+        Made with 💗 by Shakeel
+        <br>
+        A little question, just for you.
+    </div>
+
+</div>
+
+<script>
+function sayYes() {
+    const message = document.getElementById("message");
+
+    message.innerHTML =
+        "YAY! 🥹💗 Thank you, Sithmi! " +
+        "I'm really happy. Let's make some beautiful memories together! 🌸✨";
+
+    message.style.display = "block";
+
+    createHearts();
+}
+
+function sayNo() {
+    const message = document.getElementById("message");
+
+    message.innerHTML =
+        "That's completely okay, Sithmi. 💗 " +
+        "Thank you for being honest. No pressure at all. 🌷";
+
+    message.style.display = "block";
+}
+
+function createHearts() {
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+
+        heart.innerHTML = "💗";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = "25px";
+        heart.style.transition = "transform 3s, opacity 3s";
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.style.transform =
+                "translateY(-110vh) rotate(360deg)";
+            heart.style.opacity = "0";
+        }, 100);
+
+        setTimeout(() => heart.remove(), 3200);
+    }
+}
+</script>
+
+</body>
+</html>
